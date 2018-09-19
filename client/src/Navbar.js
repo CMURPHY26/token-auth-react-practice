@@ -3,9 +3,9 @@ import {Link} from "react-router-dom";
 
 function Navbar(){
     return (
-        <div className="navbar-wrapper">
+        <nav className="navbar-wrapper">
             <div className="nav-link">
-                <Link to="/">Sign Up</Link>
+                <Link to="/signup">Sign Up</Link>
             </div>
             <div className="nav-link">
                 <Link to="/login">Log In</Link>
@@ -19,7 +19,7 @@ function Navbar(){
             <div className="nav-link">
                 <button>Logout</button>
             </div>
-        </div>
+        </nav>
     )
 }
 export default Navbar;

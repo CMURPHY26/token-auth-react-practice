@@ -7,27 +7,23 @@ class LoginForm extends Component {
             username: "",
             password: ""
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.clearInputs = this.clearInputs.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        e.persist();
+    handleChange = (e) => {
+        const {name, value} = e.target
         this.setState({
-            [e.target.name]: e.target.value
+            [name]: value
         })
     }
 
-    clearInputs() {
+    clearInputs = () => {
         this.setState({
             username: "",
             password: ""
         })
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         alert(JSON.stringify(this.state));
         this.clearInputs();

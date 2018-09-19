@@ -8,21 +8,16 @@ class SignupForm extends Component {
             username: "",
             password: ""
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.clearInputs = this.clearInputs.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        e.persist();
+    handleChange = (e) => {
         const {name, value} = e.target
         this.setState({
             [name]: value
         })
     }
 
-    clearInputs() {
+    clearInputs = () => {
         this.setState({
             name: "",
             username: "",
@@ -30,7 +25,7 @@ class SignupForm extends Component {
         })
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         alert(JSON.stringify(this.state));
         this.clearInputs();

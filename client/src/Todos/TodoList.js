@@ -1,22 +1,32 @@
 import React from 'react';
 import Todo from "./Todo";
+import AddTodoForm from "./AddTodoForm"
 import { AppContextConsumer } from "../AppContext";
 
 function TodoList() {
     return (
         <AppContextConsumer>
             {
-                globalState => globalState.todos.map(todo => {
+                globalState => {
+                    const todos = globalState.todos.map(todo => {
+                        return (
+                            <Todo
+                                key={todo._id}
+                                todo={todo}
+                                editTodo={globalState.editTodo}
+                                deleteTodo={globalState.deleteTodo}
+                            />
+                        )
+                    })
                     return (
-                        <Todo
-                            key={todo._id}
-                            todo={todo}
-                            addTodo={globalState.addTodo}
-                            editTodo={globalState.editTodo}
-                            deleteTodo={globalState.deleteTodo}
-                        />
+                        <main>
+                            <AddTodoForm
+                                addTodo={globalState.addTodo}
+                            />
+                            {todos}
+                        </main>
                     )
-                })
+                }
             }
         </AppContextConsumer>
     )

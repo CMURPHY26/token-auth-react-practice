@@ -1,22 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-function AddTodoForm(props) {
-    return (
-        <div>
-            <form onSubmit={props.handleSubmit}>
-                <h4>Add New Todo</h4>
+class AddTodoForm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            title: ""
+        }
+    }
 
-                <input
-                    name="title"
-                    value={props.title}
-                    onChange={props.handleChange}
-                    type="text"
-                    placeholder="Title"/>
+    handleChange = (e) => {
+        e.persist();
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        })
+    }
 
-                <button type="submit">+</button>
-            </form>
-        </div>
-    )
+    clearInputs = () => {
+        this.setState({
+            title: ""
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addTodo(this.state)
+        this.clearInputs()
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <h4>Add New Todo</h4>
+
+                    <input
+                        name="title"
+                        value={this.state.title}
+                        onChange={this.handleChange}
+                        type="text"
+                        placeholder="Title"/>
+
+                    <button>+</button>
+                </form>
+            </div>
+        )
+    }
 }
 
 export default AddTodoForm;
