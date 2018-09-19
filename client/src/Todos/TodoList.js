@@ -1,22 +1,24 @@
-import React from 'react';
-import TodoContainer from "./TodoContainer";
-import TodoFormContainer from "./AddTodoFormContainer";
+import React, { Component } from 'react';
+import Todo from "./Todo";
+import { AppContextConsumer } from "../AppContext";
 
-function TodoList(props) {
-    const todos = props.todos.map(todo => {
-        return (
-            <TodoContainer
-                key={todo._id}
-                todo={todo}/>
-        )
-    })
-
+function TodoList() {
     return (
-        <div>
-            <TodoFormContainer/>
-            {todos}
-        </div>
+        <AppContextConsumer>
+            {
+                globalState => globalState.todos.map(todo => {
+                    return (
+                        <Todo
+                            todo={todo}
+                            addTodo={globalState.addTodo}
+                            editTodo={this.editTodo}
+                            deleteTodo={this.deleteTodo}
+                        />
+                    )
+                })
+            }
+        </AppContextConsumer>
     )
 }
 
-export default TodoList
+export default TodoList;
