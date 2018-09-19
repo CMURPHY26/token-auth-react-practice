@@ -2,10 +2,9 @@ import React from 'react';
 import Navbar from "./Navbar";
 import { Route, Switch } from "react-router-dom";
 
-import { AppContextConsumer} from "./AppContext"
 import Signup from "./Signup";
 import Login from "./Login";
-import TodoList from "./Todos";
+import TodoList from "./Todos/TodoList";
 
 function App(){
     return (
