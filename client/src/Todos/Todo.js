@@ -1,16 +1,15 @@
 import React from 'react';
 
 function Todo(props) {
-    console.log(props)
     return (
         <div>
             <h3>{props.todo.title}</h3>
-            <label htmlFor="">Completed:</label>
+            <label>Completed:</label>
             <input
-                onChange={props.handleCompleted}
+                onChange={() => props.editTodo(props.todo._id, {completed: !props.todo.completed})}
                 type="checkbox"
                 checked={props.todo.completed}/>
-            <button onClick={props.handleRemove}>X</button>
+            <button onClick={() => props.deleteTodo(props.todo._id)}>X</button>
         </div>
     )
 }
