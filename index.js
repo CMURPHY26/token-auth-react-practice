@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 
 //connect to db
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/todo-auth-example",
-    {useMongoClient: true},  // helps get rid of deprecation warnings
+mongoose.connect("mongodb://localhost:27017/todo-auth-example",
+    { useNewUrlParser: true },
     (err) => {
         if (err) throw err;
         console.log("Connected to the database");
