@@ -47,7 +47,7 @@ class SignupForm extends Component {
                            name="username"
                            type="text"
                            placeholder="Username"/>
-                    <input onChange={props.handleChange}
+                    <input onChange={this.handleChange}
                            value={this.state.password}
                            name="password"
                            type="password"

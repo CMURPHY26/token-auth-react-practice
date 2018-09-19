@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Todo from "./Todo";
+import TodoFormContainer from "./AddTodoFormContainer"
 
 class TodoContainer extends Component {
 
@@ -12,12 +12,19 @@ class TodoContainer extends Component {
     }
 
     render() {
+        const todos = this.props.todos.map(todo => {
+            return (
+                <TodoContainer
+                    key={todo._id}
+                    todo={todo}/>
+            )
+        })
+
         return (
-            <Todo
-                handleCompleted={this.handleCompleted.bind(this)}
-                handleRemove={this.handleRemove.bind(this)}
-                todo={this.props.todo}
-            />
+            <div>
+                <TodoFormContainer/>
+                {todos}
+            </div>
         )
     }
 }
