@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Todo from "./Todo";
 import { AppContextConsumer } from "../AppContext";
 
@@ -9,10 +9,11 @@ function TodoList() {
                 globalState => globalState.todos.map(todo => {
                     return (
                         <Todo
+                            key={todo._id}
                             todo={todo}
                             addTodo={globalState.addTodo}
-                            editTodo={this.editTodo}
-                            deleteTodo={this.deleteTodo}
+                            editTodo={globalState.editTodo}
+                            deleteTodo={globalState.deleteTodo}
                         />
                     )
                 })
