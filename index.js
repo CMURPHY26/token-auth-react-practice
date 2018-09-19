@@ -9,7 +9,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //connect to db
-mongoose.Promise = global.Promise;
+mongoose.set('useCreateIndex', true);
 mongoose.connect("mongodb://localhost:27017/todo-auth-example",
     { useNewUrlParser: true },
     (err) => {
