@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -18,6 +19,7 @@ mongoose.connect("mongodb://localhost:27017/todo-auth-example",
     }
 );
 
+app.use("/auth", require("./routes/auth"));
 app.use("/todo", require("./routes/todo"));
 
 app.use((err, req, res, next) => {
