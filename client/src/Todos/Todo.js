@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Todo(props) {
+    console.log(props)
     return (
         <div>
             <h3>{props.todo.title}</h3>

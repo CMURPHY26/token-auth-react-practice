@@ -13,6 +13,10 @@ export class AppContextProvider extends Component {
         }
     }
 
+    componentDidMount() {
+        this.getTodos();
+    }
+
     getTodos = () => {
         axios.get("/api/todo")
             .then(response => {
