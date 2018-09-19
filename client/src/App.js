@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from "./Navbar";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import Signup from "./Signup";
-import Login from "./Login";
+import Signup from "./Auth/Signup";
+import Login from "./Auth/Login";
 import TodoList from "./Todos/TodoList";
 
 function App(){
@@ -11,10 +11,10 @@ function App(){
         <div className="app-wrapper">
             <Navbar/>
             <Switch>
-                <Route exact path="/" component={Signup}/>
+                <Route path="/signup" component={Signup}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/todos" component={TodoList}/>
-                <Route path="/profile"/>
+                <Route exact path="/" render={() => <Redirect to="/todos"/>}/>
             </Switch>
         </div>
     )
