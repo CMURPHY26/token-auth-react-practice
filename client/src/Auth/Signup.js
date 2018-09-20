@@ -4,7 +4,6 @@ class SignupForm extends Component {
     constructor() {
         super();
         this.state = {
-            name: "",
             username: "",
             password: ""
         }
