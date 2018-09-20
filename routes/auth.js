@@ -22,7 +22,7 @@ authRouter.post("/login", (req, res) => {
     User.findOne({username: req.body.username.toLowerCase()}, (err, user) => {
         if (err) return res.status(500).send(err);
         if (!user || user.password !== req.body.password) {
-            return res.status(403).send({success: false, err: "Email or password are incorrect"})
+            return res.status(403).send({success: false, err: "Username or password are incorrect"})
         }
         const token = jwt.sign(user.toObject(), process.env.SECRET);
         return res.send({token: token, user: user.toObject(), success: true})
