@@ -1,9 +1,7 @@
-import React, { Component } from "react"
-import axios from "axios"
+import React, { Component } from "react";
+import axios from "axios";
 
-const AppContext = React.createContext()
-
-export const AppContextConsumer = AppContext.Consumer;
+const AppContext = React.createContext();
 
 export class AppContextProvider extends Component {
     constructor() {
@@ -20,9 +18,9 @@ export class AppContextProvider extends Component {
     getTodos = () => {
         axios.get("/api/todo")
             .then(response => {
-                this.setState({ todos: response.data })
+                this.setState({ todos: response.data });
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }
 
     addTodo = (newTodo) => {
@@ -83,18 +81,18 @@ export class AppContextProvider extends Component {
 export const withContext = Component => {
     return props => {
         return (
-            <AppContextConsumer>
+            <AppContext.Consumer>
                 {
                     globalState => {
                         return (
                             <Component
-                                globalState={globalState}
+                                {...globalState}
                                 {...props}
                             />
                         )
                     }
                 }
-            </AppContextConsumer>
+            </AppContext.Consumer>
         )
     }
 }
