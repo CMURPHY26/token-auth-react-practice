@@ -79,3 +79,22 @@ export class AppContextProvider extends Component {
         )
     }
 }
+
+export const withContext = Component => {
+    return props => {
+        return (
+            <AppContextConsumer>
+                {
+                    globalState => {
+                        return (
+                            <Component
+                                globalState={globalState}
+                                {...props}
+                            />
+                        )
+                    }
+                }
+            </AppContextConsumer>
+        )
+    }
+}

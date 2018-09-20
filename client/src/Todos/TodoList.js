@@ -1,35 +1,29 @@
 import React from 'react';
 import Todo from "./Todo";
 import AddTodoForm from "./AddTodoForm"
-import { AppContextConsumer } from "../AppContext";
+import { withContext } from "../AppContext";
 
-function TodoList() {
+function TodoList(props) {
+    console.log(props)
+    const todos = props.todos.map(todo => {
+        return (
+            <Todo
+                key={todo._id}
+                todo={todo}
+                editTodo={props.editTodo}
+                deleteTodo={props.deleteTodo}
+            />
+        )
+    })
+
     return (
-        <AppContextConsumer>
-            {
-                globalState => {
-                    const todos = globalState.todos.map(todo => {
-                        return (
-                            <Todo
-                                key={todo._id}
-                                todo={todo}
-                                editTodo={globalState.editTodo}
-                                deleteTodo={globalState.deleteTodo}
-                            />
-                        )
-                    })
-                    return (
-                        <main>
-                            <AddTodoForm
-                                addTodo={globalState.addTodo}
-                            />
-                            {todos}
-                        </main>
-                    )
-                }
-            }
-        </AppContextConsumer>
+        <main>
+            <AddTodoForm
+                addTodo={props.addTodo}
+            />
+            {todos}
+        </main>
     )
 }
 
-export default TodoList;
+export default withContext(TodoList);
