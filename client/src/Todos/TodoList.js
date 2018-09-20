@@ -4,7 +4,6 @@ import AddTodoForm from "./AddTodoForm"
 import { withContext } from "../AppContext";
 
 function TodoList(props) {
-    console.log(props)
     const todos = props.todos.map(todo => {
         return (
             <Todo
