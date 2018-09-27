@@ -6,7 +6,7 @@ import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
 import TodoList from "./Todos/TodoList";
 
-function App(){
+function App() {
     return (
         <div className="app-wrapper">
             <Navbar/>
