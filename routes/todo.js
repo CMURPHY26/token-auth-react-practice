@@ -40,7 +40,7 @@ todoRouter.put("/:todoId", (req, res, next) => {
     Todo.findByIdAndUpdate(
         req.params.todoId,
         req.body,
-        {new: true},
+        { new: true },
         (err, todo) => {
             if (err) {
                 console.log("Error");

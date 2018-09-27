@@ -22,7 +22,7 @@ app.use("/todo", require("./routes/todo"));
 
 app.use((err, req, res, next) => {
     console.error(err);
-    return res.send({message: err.message});
+    return res.send({ message: err.message });
 });
 
 app.listen(PORT, () => {
