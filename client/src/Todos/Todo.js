@@ -6,7 +6,7 @@ function Todo(props) {
             <h3>{props.todo.title}</h3>
             <label>Completed:</label>
             <input
-                onChange={() => props.editTodo(props.todo._id, {completed: !props.todo.completed})}
+                onChange={() => props.editTodo(props.todo._id, { completed: !props.todo.completed })}
                 type="checkbox"
                 checked={props.todo.completed}/>
             <button onClick={() => props.deleteTodo(props.todo._id)}>X</button>

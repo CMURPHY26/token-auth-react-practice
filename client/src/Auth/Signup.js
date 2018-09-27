@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Signup extends Component {
     constructor() {
@@ -10,7 +10,7 @@ class Signup extends Component {
     }
 
     handleChange = (e) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
         this.setState({
             [name]: value
         })
