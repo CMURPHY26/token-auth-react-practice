@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-app.use("/api", expressJwt({secret: process.env.SECRET}));
+app.use("/api", expressJwt({ secret: process.env.SECRET }));
 
 //connect to db
 mongoose.set('useCreateIndex', true);
