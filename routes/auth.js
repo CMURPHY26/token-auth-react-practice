@@ -4,7 +4,7 @@ const authRouter = express.Router();
 const jwt = require("jsonwebtoken");
 
 authRouter.post("/signup", (req, res, next) => {
-    User.findOne({username: req.body.username}, (err, existingUser) => {
+    User.findOne({ username: req.body.username }, (err, existingUser) => {
         if (err) {
             res.status(500);
             return next(err);
@@ -19,13 +19,13 @@ authRouter.post("/signup", (req, res, next) => {
                 return next(err);
             }
             const token = jwt.sign(user.toObject(), process.env.SECRET);
-            return res.status(201).send({user: user.toObject(), token});
+            return res.status(201).send({ user: user.toObject(), token });
         });
     });
 });
 
 authRouter.post("/login", (req, res, next) => {
-    User.findOne({username: req.body.username.toLowerCase()}, (err, user) => {
+    User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if (err) {
             res.status(500);
             return next(err);
@@ -34,7 +34,7 @@ authRouter.post("/login", (req, res, next) => {
             return next(new Error("Username or password are incorrect"));
         }
         const token = jwt.sign(user.toObject(), process.env.SECRET);
-        return res.send({user: user.toObject(), token})
+        return res.send({ user: user.toObject(), token })
     });
 });
 
