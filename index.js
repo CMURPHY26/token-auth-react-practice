@@ -26,6 +26,9 @@ app.use("/api/todo", require("./routes/todo"));
 
 app.use((err, req, res, next) => {
     console.error(err);
+    if (err.name === "UnauthorizedError") {
+        res.status(err.status)
+    }
     return res.send({ message: err.message });
 });
 
