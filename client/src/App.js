@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from "./Navbar";
 import { Route, Switch, Redirect } from "react-router-dom";
 
+import Navbar from "./Navbar";
 import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
 import TodoList from "./Todos/TodoList";
