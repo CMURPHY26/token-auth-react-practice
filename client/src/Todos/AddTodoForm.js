@@ -25,7 +25,10 @@ class AddTodoForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addTodo(this.state)
-        this.clearInputs()
+            .then(response => {
+                this.clearInputs()
+            })
+            .catch(err => console.error(err.response.data.message))
     }
 
     render() {

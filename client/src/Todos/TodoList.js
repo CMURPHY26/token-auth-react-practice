@@ -17,9 +17,7 @@ function TodoList(props) {
 
     return (
         <main>
-            <AddTodoForm
-                addTodo={props.addTodo}
-            />
+            <AddTodoForm addTodo={props.addTodo} />
             {todos}
         </main>
     )
