@@ -67,7 +67,7 @@ export class AppContextProvider extends Component {
                     addTodo: this.addTodo,
                     editTodo: this.editTodo,
                     deleteTodo: this.deleteTodo,
-                    todos: this.state.todos
+                    ...this.state
                 }}
             >
 
