@@ -18,7 +18,6 @@ class Signup extends Component {
 
     clearInputs = () => {
         this.setState({
-            name: "",
             username: "",
             password: ""
         })
