@@ -19,6 +19,7 @@ export class AppContextProvider extends Component {
         return axios.get("/api/todo")
             .then(response => {
                 this.setState({ todos: response.data });
+                return response;
             })
     }
 
@@ -28,6 +29,7 @@ export class AppContextProvider extends Component {
                 this.setState(prevState => {
                     return { todos: [...prevState.todos, response.data] }
                 });
+                return response;
             })
     }
 
@@ -40,18 +42,20 @@ export class AppContextProvider extends Component {
                     })
                     return { todos: updatedTodos }
                 })
+                return response;
             })
     }
 
     deleteTodo = (todoId) => {
         return axios.delete(`/api/todo/${todoId}`)
-            .then(() => {
+            .then(response => {
                 this.setState(prevState => {
                     const updatedTodos = prevState.todos.filter(todo => {
                         return todo._id !== todoId
                     })
                     return { todos: updatedTodos }
                 })
+                return response;
             })
     }
 
