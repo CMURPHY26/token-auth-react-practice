@@ -16,25 +16,23 @@ export class AppContextProvider extends Component {
     }
 
     getTodos = () => {
-        axios.get("/api/todo")
+        return axios.get("/api/todo")
             .then(response => {
                 this.setState({ todos: response.data });
             })
-            .catch(err => console.error(err));
     }
 
     addTodo = (newTodo) => {
-        axios.post("/api/todo/", newTodo)
+        return axios.post("/api/todo/", newTodo)
             .then(response => {
                 this.setState(prevState => {
                     return { todos: [...prevState.todos, response.data] }
                 });
             })
-            .catch(err => console.error(err));
     }
 
     editTodo = (todoId, todo) => {
-        axios.put(`/api/todo/${todoId}`, todo)
+        return axios.put(`/api/todo/${todoId}`, todo)
             .then(response => {
                 this.setState(prevState => {
                     const updatedTodos = prevState.todos.map(todo => {
@@ -43,11 +41,10 @@ export class AppContextProvider extends Component {
                     return { todos: updatedTodos }
                 })
             })
-            .catch(err => console.error(err));
     }
 
     deleteTodo = (todoId) => {
-        axios.delete(`/api/todo/${todoId}`)
+        return axios.delete(`/api/todo/${todoId}`)
             .then(() => {
                 this.setState(prevState => {
                     const updatedTodos = prevState.todos.filter(todo => {
@@ -56,7 +53,6 @@ export class AppContextProvider extends Component {
                     return { todos: updatedTodos }
                 })
             })
-            .catch(err => console.error(err));
     }
 
     render() {
