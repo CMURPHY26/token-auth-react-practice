@@ -14,9 +14,6 @@ function Navbar() {
                 <Link to="/todos">Todos</Link>
             </div>
             <div className="nav-link">
-                <Link to="/profile">Profile</Link>
-            </div>
-            <div className="nav-link">
                 <button>Logout</button>
             </div>
         </nav>
