@@ -1,24 +1,25 @@
 React User Authentication Tutorial
 ==================================
 
-**INCLUDES:**
-* All the server-side project code with JWT authentication set up as found in [part 1 of the authentication series](https://coursework.vschool.io/token-auth-with-jwts-part1/)
-* The boilerplate React code for a simple todo project with sign in and sign up routes
+## How to use this repository
+First, you should plan to follow the instructions in the writeups. Here's the links to all parts for quick reference:
+[Part 1 - Server Setup](https://coursework.vschool.io/token-auth-with-jwts-part-1/)
 
-**To USE**
+(After part one, the series splits into 2 branches - one that uses Redux for state management and another that uses React's native Context API instead.)
 
-- `git clone https://github.com/VSchool/react-auth-series.git`
-- from within /react-auth-start, install server dependencies: `npm install`
-- run server: `nodemon index.js`
-- `cd client`
-- form within /react-auth-start/client folder, install front-end dependencies: `npm install`
-- run react-server: `npm start`
-- Follow tutorial: 
-- PART ONE: https://coursework.vschool.io/react-token-authentication-pt-1/
-- PART TWO: https://coursework.vschool.io/react-token-authentication-pt-2/
+**Using React Context**
+[Part 2 - React Setup - React + Context](https://coursework.vschool.io/token-auth-with-jwts-part-2-react-context/)
+[Part 3 - Security and UX - React + Context](https://coursework.vschool.io/token-auth-with-jwts-part-3-react-context/)
 
-**GOAL**
-- Learn how to implement a basic user authentication feature within a React application.
-- Follow tutorial here: 
-- PART ONE: https://coursework.vschool.io/react-token-authentication-pt-1/
-- PART TWO: https://coursework.vschool.io/react-token-authentication-pt-2/
+**Using Redux**
+[Part 2 - React Setup - React + Redux](https://coursework.vschool.io/token-auth-with-jwts-part-2-react-redux/)
+[Part 3 - Security and UX - React + Redux](https://coursework.vschool.io/token-auth-with-jwts-part-3-react-redux/)
+
+## Goals
+The purpose of these tutorial series is to give you a taste of what it means to include token authentication in a project. It doesn't aim to teach basic principles of Node/Express, React, Redux, etc.
+
+## Assumptions
+The writeups listed above assume a basic understanding of JavaScript (ES6), promises, React, Node/Express, and either Redux or React Context, along with some other more advanced principles of React like Higher-Order Components.
+
+## Contributing
+This is an open-source project and may very likely have mistakes in it. All PRs are welcome.
