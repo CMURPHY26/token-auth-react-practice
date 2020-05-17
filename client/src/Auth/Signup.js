@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withContext} from "../AppContext"
 
 class Signup extends Component {
     constructor() {
@@ -25,7 +26,7 @@ class Signup extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        alert(JSON.stringify(this.state));
+        this.props.signup(this.state).then(() => this.props.history.push("/todos"))
         this.clearInputs();
     }
 
@@ -52,7 +53,6 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
-
+export default withContext(Signup);
 
 
